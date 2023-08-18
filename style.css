@@ -1,0 +1,78 @@
+*{
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container{
+
+width: 90%;
+height: 90%;
+text-align: center;
+align-items: center;
+border: 1px black solid;
+margin: 5%;
+background-color: rgb(11, 195, 219);
+
+}
+.subcontainer{
+   margin: 40px;
+    text-align: center;
+    border: 1px blue solid;
+    background-color: aliceblue;
+}
+.row div{
+    width: 50px;
+    height: 50px;
+    position: relative;
+    margin: -2px;
+    color: black;
+    background-color: rgb(242, 242, 247);
+    border: 1px black solid;
+    display:inline-flex;
+  
+}
+
+.blue{
+    width: 35px;
+    height: 35px;
+    
+    background-color:#f2f2f8;
+   position: absolute;
+   margin: 8px;
+    z-index: 1; 
+   border: 2px solid black;
+   border-radius: 50%;
+   cursor: pointer;
+   /* display: none; */
+   display: block;
+}
+ .btn-group .cir2{
+       width: 20px;
+       height: 20px;  
+       margin-top: 19px;
+       margin-left: 7px;
+       background-color: #d9dfda;
+       position: absolute;
+       border-radius: 50%;
+      border: 2px solid rgb(10, 10, 10);
+        display: none; 
+       /* display: block;  */
+       cursor: pointer;
+       /* z-index: 1; */
+
+}
+.btn-group .cir3{
+    width: 20px;
+    height: 20px;
+    margin-left: 20px;
+    margin-top: 18px;
+    position: absolute;
+    background-color: rgb(230, 240, 240);
+    display: none;
+    border-radius: 50%;
+    border: 2px solid black;
+    /* display: block; */
+    /* z-index: 2; */
+}
+ 
