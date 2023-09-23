@@ -1,5 +1,5 @@
   const players=["player1","player2"];
-    const playersColor=["blue","green"];
+    const playersColor=["green","blue"];
      var currentPlayerIndex =0;
    
 // const button=document.getElementsByTagName("button");
@@ -8,6 +8,8 @@
     const cir2s=document.querySelectorAll(".cir2");
     const cir3s=document.querySelectorAll(".cir3");
   const sameclrs = document.querySelectorAll(".sameclr");
+  const playerColorShow1 =document.getElementsByClassName(".player1");
+  const playerColorShow2 =document.getElementsByClassName(".player2");
 //   const allblue =false;
     //console.log(currentPlayerIndex++);
         function playerTerm(event){
@@ -22,9 +24,10 @@
            
             currentPlayerIndex = currentPlayerIndex +2;
             // console.log(currentPlayerIndex);
+            
             btns.forEach(btn => {
 
-                const white="#f2f2f8";
+                const white="#f8f2f7";
                 // var cir1 = btn.textContent ==='C1';
                 /* var cir22=btn.textContent==='C2';
                 var cir33=btn.textContent==='C3'; */
@@ -35,7 +38,16 @@
                     currentPlayerIndex=(currentPlayerIndex+1)%players.length;
                     var currentPlayer =players[currentPlayerIndex];
                     document.getElementById("player").innerHTML= currentPlayer;
+                     
+                    
                     if(currentPlayerIndex==1){
+                  
+                       
+
+
+
+
+
                         
                         if(btn.style.backgroundColor != "green" && btn.style.backgroundColor!="blue"){
                             
@@ -135,10 +147,21 @@
                                 currentPlayerIndex++; //to switch correct player
                                
                             }
+                             if(checkWin()){
+                            alert("blue color is win");
+                         return;
+                        }
                            
                         }
 
                     if(currentPlayerIndex==0){
+
+                        // if(checkWin()){
+                        //     alert("green color is win");
+
+
+                        // }
+                        
                         if(btn.style.backgroundColor != "blue" && btn.style.backgroundColor != "green" ){
         
                              btn.style.backgroundColor="green";
@@ -174,7 +197,7 @@
                                                     if(adjButton.style.backgroundColor==="blue"){
                                                         
                                                         adjButton.style.backgroundColor="green";
-                                                        btn.style.backgroundColor="#f2f2f8";
+                                                        // btn.style.backgroundColor="#f2f2f8";
                                                         btn.style.width="35px";
                                                         btn.style.height="35px";
                                                         btn.style.marginLeft="7px";
@@ -230,7 +253,10 @@
         
         
         
-        
+                         if(checkWin()){
+                            alert("green color is win");
+                         return;
+                        }
         
                     }
                     
@@ -262,6 +288,7 @@
               
                 
                 // //currentPlayerIndex++;
+                 
                 switchingPlayers();
                 
                     
@@ -275,13 +302,37 @@
         
          
         function checkWin(){
-            const currentplayercolor=playersColor[currentPlayerIndex - 1];
-            btns.forEach(btn=>{
-                if(btn.style.backgroundColor!== currentplayercolor){
-                    return false;
-                }
-            })
-            return true;
+            const currentplayercolor=playersColor[currentPlayerIndex ];
+            console.log(currentplayercolor);
+            var winPlayer=true;
+            var count =0;
+           btns.forEach(button =>{
+            if(button.style.backgroundColor!=currentplayercolor){
+                winPlayer=false;
+                count++;
+                console.log(winPlayer);
+                // console.log(count);
+                // console.log();
+            }
+           })
+           if(currentplayercolor=="blue"){
+
+               document.getElementById("score1").innerHTML=56-count;
+               document.getElementById("score11").innerHTML=count;
+           }else{
+
+                  document.getElementById("score2").innerHTML=56-count;
+                  document.getElementById("score22").innerHTML=count;
+           }
+           
+           if(count==0){
+            winPlayer=true;
+           }
+           
+               
+            
+            console.log(winPlayer);
+            return winPlayer;
         }
         
        
@@ -419,7 +470,11 @@
              const btns = Button.querySelectorAll(".blue");
             
             // console.log(allblue);
+            // if(checkWin()){
+            //     alert("blue color is win");
+            // }
             btns.forEach(btn=>{
+                
                 btn.addEventListener("click", playerTerm);
                 
             })
